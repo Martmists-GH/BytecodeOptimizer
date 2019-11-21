@@ -1,6 +1,9 @@
 # External Libraries
 from setuptools import setup, find_packages
 
+with open("README.md") as fp:
+    README = fp.read()
+
 if __name__ == '__main__':
     setup(
         name="bytecode_optimizer",
@@ -10,9 +13,9 @@ if __name__ == '__main__':
         maintainer_email="mail@martmists.com",
         license="MIT",
         zip_safe=False,
-        version="0.1.0",
+        version="0.1.1",
         description="A bytecode optimizer for python",
-        long_description="TODO",
+        long_description=README,
         url="https://github.com/Martmists/BytecodeOptimizer",
         packages=find_packages(),
         keywords=["bytecode", "optimizer", "speed"],
