@@ -12,6 +12,7 @@ class Flags:
     TAIL_CALL_OPTIMIZATION = True
     OPTIMIZE_ACCESSORS = True
     OPTIMIZE_NAMES = True
+    OPTIMIZE_ITERATIONS = 3
 
 
 def debug(*args):

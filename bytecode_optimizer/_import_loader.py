@@ -4,7 +4,7 @@ from importlib._bootstrap_external import FileFinder, SourceLoader
 import sys
 
 # Project Internals
-from bytecode_optimizer._optimizer import optimize_code
+from bytecode_optimizer._optimizer import optimize_code, Flags
 
 
 class ByteOptimizerLoader(SourceLoader):
@@ -26,8 +26,8 @@ class ByteOptimizerLoader(SourceLoader):
                 "_") and self.module not in excluded_modules:
             # Don't optimize python internals or files marked
             # with `# no-optimize` anywhere in the file
-            code = optimize_code(code)
-            dis.dis(code)
+            for _ in range(Flags.OPTIMIZE_ITERATIONS):
+                code = optimize_code(code)
         return code
 
     @classmethod
